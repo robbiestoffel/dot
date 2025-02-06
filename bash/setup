@@ -1,0 +1,7 @@
+#!/bin/sh
+
+echo "Replacing .bashrc, .dircolors, & .inputrc with symlink/copy."
+
+ln -sf "$PWD/bashrc" "$HOME/.bashrc"
+ln -sf "$PWD/dircolors" "$HOME/.dircolors"
+ln -sf "$PWD/inputrc" "$HOME/.inputrc"
