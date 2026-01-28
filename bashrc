@@ -29,8 +29,6 @@ _source_if() { [[ -r "$1" ]] && source "$1"; }
 # ----------------------- environment variables ----------------------
 
 export LANG=en_US.UTF-8
-export USER=robbie
-export USERNAME=robbie
 export HRULEWIDTH=73
 export TZ=America/New_York
 export TERMINAL_BROWSER=w3m # lynx
@@ -192,9 +190,9 @@ __ps1() {
 	[[ $B == master || $B == main ]] && b="$r"
 	[[ -n "$B" ]] && B="$g($b$B$g)"
 
-	short="$u$USER$g$PROMPT_AT$h\h$g:$w$dir$B$p$P$x "
-	long="${g}╔$u$USER$g$PROMPT_AT$h\h$g:$w$dir$B\n${g}╚$p$P$x "
-	double="${g}╔$u@=$USER$g$PROMPT_AT$h\h$g:$w$dir\n${g}║$B\n${g}╚$p$P$x "
+	short="$u\u$g$PROMPT_AT$h\h$g:$w$dir$B$p$P$x "
+	long="${g}╔$u\u$g$PROMPT_AT$h\h$g:$w$dir$B\n${g}╚$p$P$x "
+	double="${g}╔$u\u$g$PROMPT_AT$h\h$g:$w$dir\n${g}║$B\n${g}╚$p$P$x "
 
 	if ((${#countme} > PROMPT_MAX)); then
 		PS1="$double"
@@ -255,19 +253,3 @@ _have "nvim" && set-editor nvim
 _have gh && . <(gh completion -s bash)
 _have pandoc && . <(pandoc --bash-completion)
 _have yq && . <(yq completion bash)
-
-
-
-# Remove Broken Robbi paths :(((
-
-export PATH=$(echo "$PATH" | tr ':' '\n' | grep -v '/c/Users/robbi' | paste -sd:)
-
-# add a bunch of correct paths
-
-export PATH="$PATH:/c/Users/robbie/bin"
-export PATH="$PATH:/c/Users/robbie/AppData/Local/Programs/Podman"
-export PATH="$PATH:/c/Users/robbie/AppData/Roaming/npm"
-export PATH="$PATH:/c/Users/robbie/.cargo/bin"
-export PATH="$PATH:/c/Users/robbie/AppData/Local/Programs/Microsoft VS Code/bin"
-export PATH="$PATH:/c/Users/robbie/go/bin"
-export PATH="$PATH:/c/Users/robbie/AppData/Local/Microsoft/WindowsApps"
