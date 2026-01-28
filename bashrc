@@ -238,6 +238,9 @@ alias neo="neo -D -c gold"
 alias more="less -R"
 alias gitl="git log -n 5 --graph --decorate --oneline"
 
+
+alias woman=man
+
 set-editor() {
 	export EDITOR="$1"
 	export VISUAL="$1"
