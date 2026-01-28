@@ -1,9 +1,0 @@
-echo "Coping in .vimrc, plug.vim, and init.lua"
-
-ln -sf "$PWD/vimrc" "$HOME/.vimrc"
-
-mkdir -p "$HOME/.vim/autoload"
-ln -sf "$PWD/plug.vim" "$HOME/.vim/autoload/plug.vim"
-
-mkdir -p "$HOME/.config/nvim"
-ln -sf "$PWD/init.lua" "$HOME/.config/nvim/init.lua"
