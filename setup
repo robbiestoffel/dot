@@ -1,3 +1,25 @@
 #!/bin/bash
 
 ln -sf "$PWD/bashrc" "$HOME/.bashrc"
+ln -sf "$PWD/dircolors" "$HOME/.dircolors"
+ln -sf "$PWD/tmux.conf" "$HOME/.tmux.conf"
+ln -sf "$PWD/vimrc" "$HOME/.vimrc"
+ln -sf "$PWD/wezterm.lua" "$HOME/.wezterm.lua"
+
+mkdir -p "$HOME/.vim/autoload"
+ln -sf "$PWD/plug.vim" "$HOME/.vim/autoload/plug.vim"
+
+mkdir -p "$HOME/.config/nvim"
+ln -sf "$PWD/init.lua" "$HOME/.config/nvim/init.lua"
+mkdir -p "$HOME/.config/lynx"
+ln -sf "$PWD/lynx.cfg" "$HOME/.config/lynx/lynx.cfg"
+ln -sf "$PWD/lynx.lss" "$HOME/.config/lynx/lynx.lss"
+
+mkdir -p "$HOME/.local/bin"
+FILES="$PWD/scripts/*"
+for f in $FILES; do
+	if [ -f "$f" ]; then
+		echo "Softlinking $(basename "$f")"
+	  ln -sf "$f" "$HOME/.local/bin/$(basename "$f")";
+	fi
+done
