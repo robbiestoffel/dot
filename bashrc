@@ -96,51 +96,53 @@ fi
 
 # ------------------------------- path -------------------------------
 
-pathappend() {
-	declare arg
-	for arg in "$@"; do
-		test -d "$arg" || continue
-		PATH=${PATH//":$arg:"/:}
-		PATH=${PATH/#"$arg:"/}
-		PATH=${PATH/%":$arg"/}
-		export PATH="${PATH:+"$PATH:"}$arg"
-	done
-} && export -f pathappend
+PATH="$HOME/.local/bin:$HOME/.local/go/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 
-pathprepend() {
-	for arg in "$@"; do
-		test -d "$arg" || continue
-		PATH=${PATH//:"$arg:"/:}
-		PATH=${PATH/#"$arg:"/}
-		PATH=${PATH/%":$arg"/}
-		export PATH="$arg${PATH:+":${PATH}"}"
-	done
-} && export -f pathprepend
-
-# remember last arg will be first in path
-pathprepend \
-	"$HOME/.local/bin" \
-	"$HOME/.local/go/bin" \
-	/usr/local/go/bin \
-	/usr/local/opt/openjdk/bin \
-	/usr/local/bin \
-	/opt/homebrew/bin \
-	"$SCRIPTS"
-
-pathappend \
-	/usr/local/opt/coreutils/libexec/gnubin \
-	'/mnt/c/Windows' \
-	'/mnt/c/Program Files (x86)/VMware/VMware Workstation' \
-	/mingw64/bin \
-	/usr/local/bin \
-	/usr/local/sbin \
-	/usr/local/games \
-	/usr/games \
-	/usr/sbin \
-	/usr/bin \
-	/snap/bin \
-	/sbin \
-	/bin
+# pathappend() {
+# 	declare arg
+# 	for arg in "$@"; do
+# 		test -d "$arg" || continue
+# 		PATH=${PATH//":$arg:"/:}
+# 		PATH=${PATH/#"$arg:"/}
+# 		PATH=${PATH/%":$arg"/}
+# 		export PATH="${PATH:+"$PATH:"}$arg"
+# 	done
+# } && export -f pathappend
+# 
+# pathprepend() {
+# 	for arg in "$@"; do
+# 		test -d "$arg" || continue
+# 		PATH=${PATH//:"$arg:"/:}
+# 		PATH=${PATH/#"$arg:"/}
+# 		PATH=${PATH/%":$arg"/}
+# 		export PATH="$arg${PATH:+":${PATH}"}"
+# 	done
+# } && export -f pathprepend
+# 
+# # remember last arg will be first in path
+# pathprepend \
+# 	"$HOME/.local/bin" \
+# 	"$HOME/.local/go/bin" \
+# 	/usr/local/go/bin \
+# 	/usr/local/opt/openjdk/bin \
+# 	/usr/local/bin \
+# 	/opt/homebrew/bin \
+# 	"$SCRIPTS"
+# 
+# pathappend \
+# 	/usr/local/opt/coreutils/libexec/gnubin \
+# 	'/mnt/c/Windows' \
+# 	'/mnt/c/Program Files (x86)/VMware/VMware Workstation' \
+# 	/mingw64/bin \
+# 	/usr/local/bin \
+# 	/usr/local/sbin \
+# 	/usr/local/games \
+# 	/usr/games \
+# 	/usr/sbin \
+# 	/usr/bin \
+# 	/snap/bin \
+# 	/sbin \
+# 	/bin
 
 # ------------------------ bash shell options ------------------------
 
@@ -240,6 +242,8 @@ alias gitl="git log -n 5 --graph --decorate --oneline"
 
 
 alias woman=man
+alias reload='exec $SHELL -l'
+alias dot="cd $HOME/repos/dot"
 
 set-editor() {
 	export EDITOR="$1"
