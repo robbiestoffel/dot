@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+set -e
+
+file="$HOME/repos/dot/scripts/$1"
+if test -e "$file"; then
+	echo "The file already exists"
+	exit 1
+fi
+touch "$file"
+chmod u-x "$file"
+echo -e "#!$(which bash)\nset -e" >> "$file"
+exec vim "$file"
