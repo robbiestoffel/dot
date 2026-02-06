@@ -3,10 +3,12 @@ set -e
 
 file="$HOME/repos/dot/scripts/$1"
 if test -e "$file"; then
-	echo "The file already exists"
+	echo "Watchout! You already have a script titled $file."
+	echo "It is located in $(which "$file")"
 	exit 1
 fi
 touch "$file"
-chmod u-x "$file"
+chmod u+x "$file"
 echo -e "#!$(which bash)\nset -e" >> "$file"
+ln -sf "$file" "$HOME/.local/bin/$1"
 exec vim "$file"
