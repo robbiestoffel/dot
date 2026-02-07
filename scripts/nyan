@@ -1,0 +1,13 @@
+#!/usr/bin/bash
+set -e
+
+clear
+while true
+do
+		declare -i r=$(($RANDOM%256))
+		declare -i g=$(($RANDOM%256))
+		declare -i b=$(($RANDOM%256))
+		echo -n $'\033[38;2;'$r';'$g';'$b'm'
+		echo -n Nyan
+		sleep 0.04
+done
