@@ -242,7 +242,10 @@ alias gitl="git log -n 5 --graph --decorate --oneline"
 
 alias woman=man
 alias reload='exec $SHELL -l'
-alias dot="cd $HOME/repos/dot"
+alias dot='cd $HOME/repos/github.com/robbiestoffel/dot'
+alias myhub='cd "$HOME"/repos/github.com/robbiestoffel'
+alias mylab='cd "$HOME"/repos/gitlab.com/robbiestoffel'
+alias pearl="perl"
 
 set-editor() {
 	export EDITOR="$1"

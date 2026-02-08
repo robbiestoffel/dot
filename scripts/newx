@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 set -e
 
-file="$HOME/repos/dot/scripts/$1"
+file="$HOME/repos/github.com/robbiestoffel/dot/scripts/$1"
 if test -e "$file"; then
 	echo "Watchout! You already have a script titled $file."
 	echo "It is located in $(which "$file")"
