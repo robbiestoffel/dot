@@ -3,8 +3,8 @@ set -e
 
 file="$HOME/repos/github.com/robbiestoffel/dot/scripts/$1"
 if test -e "$file"; then
-	echo "Watchout! You already have a script titled $file."
-	echo "It is located in $(which "$file")"
+	echo "Watchout! You already have a script titled $1."
+	echo "It is located in $file"
 	exit 1
 fi
 touch "$file"
