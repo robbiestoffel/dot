@@ -198,13 +198,14 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
   call plug#end()
 
   let g:vim_asciidoc_initial_foldlevel=1
-
-  set signcolumn=yes
-  let g:ale_set_signs = 1
-  let g:ale_sign_info = '✨'
-  let g:ale_sign_error = '🔥'
-  let g:ale_sign_warning = '❗️'
-  let g:ale_sign_hint = '💡'
+  
+  set signcolumn=no
+  " set signcolumn=yes
+  " let g:ale_set_signs = 1
+  " let g:ale_sign_info = '✨'
+  " let g:ale_sign_error = '🔥'
+  " let g:ale_sign_warning = '❗️'
+  " let g:ale_sign_hint = '💡'
 
   " perl stuff needs cpan install (brew also works):
   "   Perl::Tidy
