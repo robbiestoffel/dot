@@ -32,11 +32,7 @@ end
 ---------------------------- detect_font ---------------------------
 
 local function detect_font()
-  if myos == "windows" then
-    return wezterm.font("Ubuntu Mono")
-  else
-    return wezterm.font("UbuntuMono Nerd Font")
-  end
+  return wezterm.font("Ubuntu Mono")
 end
 
 ------------------------------- main -------------------------------
@@ -49,7 +45,7 @@ return {
   font = detect_font(),
   font_size = 26,
 
-  default_domain =  myos:match('windows') and "WSL:Ubuntu" or "",
+  default_domain = myos == "windows" and "WSL:Ubuntu" or nil,
 
   colors = {
     cursor_bg = '#928374',
