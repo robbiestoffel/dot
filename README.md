@@ -1,2 +1,3 @@
 # dot
-Collection of useful dotfiles.
+
+collection of useful dotfiles !!
