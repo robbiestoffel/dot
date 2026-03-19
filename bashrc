@@ -244,7 +244,7 @@ alias gitl="git log -n 5 --graph --decorate --oneline"
 
 
 alias woman=man
-alias reload='exec $SHELL -l'
+alias reload='source ~/.bashrc'
 alias dot='cd $HOME/repos/github.com/robbiestoffel/dot'
 alias myhub='cd "$HOME"/repos/github.com/robbiestoffel'
 alias mylab='cd "$HOME"/repos/gitlab.com/robbiestoffel'
@@ -265,5 +265,3 @@ _have "nvim" && set-editor nvim
 _have gh && . <(gh completion -s bash)
 _have pandoc && . <(pandoc --bash-completion)
 _have yq && . <(yq completion bash)
-
-export USER=robbie

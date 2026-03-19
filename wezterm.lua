@@ -44,7 +44,7 @@ return {
 
   color_scheme = 'Gruvbox Material (Gogh)',
   font = detect_font(),
-  font_size = 26,
+  font_size = 18,
 
   colors = {
     cursor_bg = '#928374',
@@ -65,6 +65,7 @@ return {
   set_environment_variables = {
     HOME = "C:\\Users\\robbie",
     PATH = os.getenv("PATH"),
+    BASH_ENV = "C:\\Users\\robbie\\.bashrc",
   }
 }
 
