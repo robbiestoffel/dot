@@ -21,7 +21,7 @@ local myos = detect_os()
 
 local function detect_shell()
   if myos == "windows" then
-    return { "wsl.exe" }
+    return { "C:/Program Files/Git/bin/bash.exe", "-i" }
   elseif myos == "mac" then
     return { "/opt/homebrew/bin/bash", "--login", }
   else
@@ -39,13 +39,12 @@ end
 
 return {
   window_close_confirmation = 'NeverPrompt',
+  enable_tab_bar = false,
   default_prog = detect_shell(),
 
   color_scheme = 'Gruvbox Material (Gogh)',
   font = detect_font(),
   font_size = 26,
-
-  default_domain = myos == "windows" and "WSL:Ubuntu" or nil,
 
   colors = {
     cursor_bg = '#928374',
@@ -60,30 +59,14 @@ return {
   },
 
   term = "xterm-256color",
-  animation_fps = 1,
-  max_fps = 1,
+  animation_fps = 60,
+  max_fps = 60,
 
-  ----------- rwxrob streaming stuff, fyi --------------
-
-  --font_size = 41,
-  --initial_cols = 74,
-  --initial_rows = 22,
-
-  --[[
-  -- exactly position
-  wezterm.on('gui-startup', function(cmd)
-    local tab, pane, window = mux.spawn_window(cmd or {})
-    window:gui_window():set_position(0, 130)
-end),
-  ]]--
-
-  --window_decorations = "RESIZE",
-  --enable_tab_bar = false,
-  --hide_tab_bar_if_only_one_tab = true,
-
+  set_environment_variables = {
+    HOME = "C:\\Users\\robbie",
+    PATH = os.getenv("PATH"),
+  }
 }
-
-
 
 
 

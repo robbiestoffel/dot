@@ -1,6 +1,9 @@
 #!/bin/bash
 # shellcheck disable=SC1090,SC1091
 
+[[ -n "$BASHRC_LOADED" ]] && return
+export BASHRC_LOADED=1
+
 case $- in
 *i*) ;; # interactive
 *) return ;;
@@ -64,7 +67,7 @@ x86_64) GOARCH="amd64" ;;
 aarch64) GOARCH="arm64" ;;
 *)
 	echo "Unsupported architecture"
-	exit 1
+	return 1
 	;;
 esac && export GOARCH
 export GOBIN="$HOME/.local/bin"
@@ -96,7 +99,7 @@ fi
 
 # ------------------------------- path -------------------------------
 
-PATH="$HOME/.local/bin:$HOME/.local/go/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
+PATH="$PATH"
 
 # pathappend() {
 # 	declare arg
@@ -192,9 +195,9 @@ __ps1() {
 	[[ $B == master || $B == main ]] && b="$r"
 	[[ -n "$B" ]] && B="$g($b$B$g)"
 
-	short="$u\u$g$PROMPT_AT$h\h$g:$w$dir$B$p$P$x "
-	long="${g}╔$u\u$g$PROMPT_AT$h\h$g:$w$dir$B\n${g}╚$p$P$x "
-	double="${g}╔$u\u$g$PROMPT_AT$h\h$g:$w$dir\n${g}║$B\n${g}╚$p$P$x "
+	short="${u}robbie$g$PROMPT_AT$h\h$g:$w$dir$B$p$P$x "
+	long="${g}╔${u}robbie$g$PROMPT_AT$h\h$g:$w$dir$B\n${g}╚$p$P$x "
+	double="${g}╔${u}robbie$g$PROMPT_AT$h\h$g:$w$dir\n${g}║$B\n${g}╚$p$P$x "
 
 	if ((${#countme} > PROMPT_MAX)); then
 		PS1="$double"
@@ -262,3 +265,5 @@ _have "nvim" && set-editor nvim
 _have gh && . <(gh completion -s bash)
 _have pandoc && . <(pandoc --bash-completion)
 _have yq && . <(yq completion bash)
+
+export USER=robbie

@@ -1,3 +1,3 @@
 # dot
 
-collection of useful dotfiles !!
+windows is needy and requires stupid separate dot files
