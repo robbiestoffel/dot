@@ -99,7 +99,7 @@ fi
 
 # ------------------------------- path -------------------------------
 
-PATH="$PATH"
+PATH="/c/Strawberry/c/bin:/c/Strawberry/perl/site/bin:/c/Strawberry/perl/bin:$PATH:$HOME/.local/bin:$HOME/.local/go/bin"
 
 # pathappend() {
 # 	declare arg
@@ -248,7 +248,6 @@ alias reload='source ~/.bashrc'
 alias dot='cd $HOME/repos/github.com/robbiestoffel/dot'
 alias myhub='cd "$HOME"/repos/github.com/robbiestoffel'
 alias mylab='cd "$HOME"/repos/gitlab.com/robbiestoffel'
-alias pearl="perl"
 
 set-editor() {
 	export EDITOR="$1"
