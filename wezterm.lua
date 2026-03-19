@@ -66,6 +66,7 @@ return {
     HOME = "C:\\Users\\robbie",
     PATH = os.getenv("PATH"),
     BASH_ENV = "C:\\Users\\robbie\\.bashrc",
+    MSYS = "winsymlinks:nativestrict",
   }
 }
 
