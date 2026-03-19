@@ -2,6 +2,8 @@
 
 windows is needy and requires stupid separate dot files
 
+remember to enable Developer Mode in settings so symbolic links work
+
 ### What Changed
 
 **wezterm.lua**
